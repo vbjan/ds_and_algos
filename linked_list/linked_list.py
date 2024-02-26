@@ -2,8 +2,8 @@ from typing import Optional
 
 
 class Node:
-    def __init__(self, element: int):
-        self.element: int = element
+    def __init__(self, element):
+        self.element = element
         self.next: Optional[Node] = None
 
     def __repr__(self):
@@ -16,7 +16,8 @@ class LinkedList:
         self.size: int = 0
         self.tail: Optional[Node] = None
 
-    def append(self, new_node: Node) -> None:  # O(1)
+    def append(self, element) -> None:  # O(1)
+        new_node = Node(element)
         if self.head is None:
             self.head = new_node
             self.tail = new_node
@@ -43,10 +44,11 @@ class LinkedList:
     def index_is_allowed(self, i):
         return 0 <= i <= self.size
 
-    def insert(self, new_node: Node, i: int) -> None:
+    def insert(self, element, i: int) -> None:
         if not self.index_is_allowed(i):
             raise IndexError("Index out of bounds.")
 
+        new_node = Node(element)
         if i == 0:  # no previous element, O(1)
             new_node.next = self.head
             self.head = new_node
@@ -59,6 +61,14 @@ class LinkedList:
             prev_node.next = new_node
             new_node.next = temp
             self.size += 1
+
+    def pop_head(self) -> Node:
+        if self.is_empty():
+            raise IndexError("Attempted to pop head of empty LinkedList.")
+        node = self.head
+        self.head = self.head.next
+        self.size -= 1
+        return node
 
     def __repr__(self) -> str:  # O(n)
         node, node_names = self.head, []
