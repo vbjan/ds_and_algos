@@ -30,6 +30,7 @@ class LinkedList:
             raise AssertionError("LinkedList is empty.")
         if not self.index_is_allowed(item):
             raise IndexError("Index out of bounds.")
+
         steps, node = 0, self.head
         while steps < item:
             node = node.next
