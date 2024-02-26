@@ -54,7 +54,7 @@ class LinkedList:
             self.head = new_node
             self.size += 1
         elif i == self.size:  # inserting at last element = appending, O(1)
-            self.append(new_node)
+            self.append(element)
         else:  # O(n) because of traversing through list
             prev_node = self[i-1]
             temp = prev_node.next
@@ -62,12 +62,31 @@ class LinkedList:
             new_node.next = temp
             self.size += 1
 
-    def pop_head(self) -> Node:
+    def delete(self, i: int) -> None:
+        if not self.index_is_allowed(i):
+            raise IndexError("Index out of bounds.")
+        if i == 0:  # no previous element, O(1)
+            self.head = self.head.next
+            self.size -= 1
+        else:
+            prev_node = self[i-1]
+            if i == self.size - 1:  # deleted last element, need to relocated tail pointer
+                self.tail = prev_node
+            prev_node.next = prev_node.next.next
+            self.size -= 1
+
+    def pop_head(self) -> Node:  # O(1)
         if self.is_empty():
             raise IndexError("Attempted to pop head of empty LinkedList.")
         node = self.head
         self.head = self.head.next
         self.size -= 1
+        return node
+
+    def pop_tail(self) -> Node:  # O(n)
+        node = self.tail
+        self.tail = self[self.size - 2]
+        self.tail.next = None
         return node
 
     def __repr__(self) -> str:  # O(n)
@@ -81,14 +100,23 @@ class LinkedList:
 
 if __name__ == "__main__":
     list = LinkedList()
-    list.append(Node(2))
-    list.append(Node(3))
-    list.append(Node(1))
+    list.append(2)
+    list.append(3)
+    list.append(1)
     print(list)
     print(list[1])
     print(list[2])
-    list.insert(Node(10), 3)
+    list.insert(10, 3)
     print(list)
-    list.insert(Node(11), 0)
+    list.insert(11, 0)
     print(list)
     # prints out LinkedList[size=5]: HeadNode(11)->Node(2)->Node(3)->Node(10)->TailNode(1)->None
+
+    list.delete(2)
+    print(list)
+    list.pop_head()
+    print(list)
+    list.delete(2)
+    print(list)
+    list.pop_tail()
+    print(list)
