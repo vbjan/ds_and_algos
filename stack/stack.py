@@ -24,7 +24,7 @@ class ArrayStack(BaseStack):
     def __init__(self):
         self.store = []
 
-    def push(self, element):
+    def push(self, element) -> None:
         self.store.append(element)
 
     def pop(self):
@@ -42,7 +42,7 @@ class ArrayStack(BaseStack):
     def is_empty(self) -> bool:
         return len(self.store) == 0
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"ArrayStack: {str(self.store)}"
 
 
@@ -50,7 +50,7 @@ class LinkedListStack(BaseStack):
     def __init__(self):
         self.store = LinkedList()
 
-    def push(self, element):
+    def push(self, element) -> None:
         self.store.insert(element, 0)
 
     def pop(self):
@@ -69,7 +69,7 @@ class LinkedListStack(BaseStack):
     def is_empty(self) -> bool:
         return self.store.is_empty()
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"LinkedListStack: {str(self.store)}"
 
 
