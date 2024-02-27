@@ -6,7 +6,7 @@ class Node:
         self.element = element
         self.next: Optional[Node] = None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"Node({self.element})->"
 
 
@@ -41,7 +41,7 @@ class LinkedList:
     def is_empty(self) -> bool:
         return self.size == 0
 
-    def index_is_allowed(self, i):
+    def index_is_allowed(self, i: int) -> bool:
         return 0 <= i <= self.size
 
     def insert(self, element, i: int) -> None:
@@ -99,24 +99,24 @@ class LinkedList:
 
 
 if __name__ == "__main__":
-    list = LinkedList()
-    list.append(2)
-    list.append(3)
-    list.append(1)
-    print(list)
-    print(list[1])
-    print(list[2])
-    list.insert(10, 3)
-    print(list)
-    list.insert(11, 0)
-    print(list)
+    l = LinkedList()
+    l.append(2)
+    l.append(3)
+    l.append(1)
+    print(l)
+    print(l[1])
+    print(l[2])
+    l.insert(10, 3)
+    print(l)
+    l.insert(11, 0)
+    print(l)
     # prints out LinkedList[size=5]: HeadNode(11)->Node(2)->Node(3)->Node(10)->TailNode(1)->None
 
-    list.delete(2)
-    print(list)
-    list.pop_head()
-    print(list)
-    list.delete(2)
-    print(list)
-    list.pop_tail()
-    print(list)
+    l.delete(2)
+    print(l)
+    l.pop_head()
+    print(l)
+    l.delete(2)
+    print(l)
+    l.pop_tail()
+    print(l)
