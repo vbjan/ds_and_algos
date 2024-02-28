@@ -13,9 +13,11 @@ class HashSet:
         local_linked_list = self.store[self.storage_index(element)]
         if element in local_linked_list:  # element already present in HashSet
             return
+
         local_linked_list.append(element)
         self.num_elements += 1
         self.update_load_factor()
+
         if self.load_factor >= self.load_factor_threshold:
             self.increase_store_size()
 
@@ -23,8 +25,9 @@ class HashSet:
         return element in self.store[self.storage_index(element)]
 
     def remove(self, element) -> None:
-        if element not in self:
-            raise AssertionError("Can't remove element from HashSet that is not in HashSet!")
+        if element not in self:  # nothing to remove
+            return
+
         local_linked_list = self.store[self.storage_index(element)]
         local_linked_list.delete_by_element(element)
         self.num_elements -= 1
@@ -47,10 +50,12 @@ class HashSet:
         self.max_num_elements *= 2
         old_store = self.store
         self.store = [LinkedList() for _ in range(self.max_num_elements)]
-        self.num_elements = 0
+        self.num_elements = 0  # need to set to zero because add method counts added elements
+
         for linked_list in old_store:
             for element in linked_list:
                 self.add(element)
+
         self.update_load_factor()
 
 
