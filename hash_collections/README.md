@@ -12,7 +12,7 @@
 *The HashMap is based on the same idea, with some modifications: It stores a set of keys and saves their corresponding values also. This allows for efficient data retrieval by key, offering quick access to the associated values.*
 
 
-## Array-Based Implementation
+# Array-Based Implementation
 - Elements are passed through a hash function and then, depending on the hash value, stored at a resulting index in the underlying array
 - To deal with hash collisions each entry in the array stores a linked list, which allows to store multiple elements at one index of the array
 - The array is dynamically resized if the `load_factor` exceeds a threshold
