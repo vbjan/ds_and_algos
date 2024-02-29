@@ -8,6 +8,9 @@
   - Efficiently deleting duplicates in data
   - Membership testing
 
+# Hash Map
+*The HashMap is based on the same idea, with some modifications: It stores a set of keys and saves their corresponding values also. This allows for efficient data retrieval by key, offering quick access to the associated values.*
+
 
 ## Array-Based Implementation
 - Elements are passed through a hash function and then, depending on the hash value, stored at a resulting index in the underlying array

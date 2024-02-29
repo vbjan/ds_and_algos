@@ -85,10 +85,13 @@ class LinkedList:
             steps += 1
             if node == self.tail:
                 raise Warning(f"Tried to delete {element} which is not in LinkedList!")
-        if len(self) == 1:
-            self.__init__()
-        else:
+
+        if node != self.head:
             prev_node.next = node.next
+        else:
+            self.head = node.next
+
+        self.size -= 1
 
     def pop_head(self) -> Node:  # O(1)
         if self.is_empty():
@@ -105,6 +108,7 @@ class LinkedList:
         return node
 
     def __iter__(self):
+        self.iter_index = 0
         return self
 
     def __next__(self):

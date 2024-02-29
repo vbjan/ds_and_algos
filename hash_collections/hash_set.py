@@ -1,14 +1,11 @@
-from linked_list.linked_list import LinkedList
+from base_hash_collection import BaseHashCollection
 from copy import deepcopy
 
 
-class HashSet:
-    def __init__(self, max_num_elements):
-        self.max_num_elements = max_num_elements
-        self.num_elements = 0
-        self.load_factor = 0
-        self.load_factor_threshold = 0.7
-        self.store = [LinkedList() for _ in range(self.max_num_elements)]
+class HashSet(BaseHashCollection):
+
+    def __contains__(self, element):
+        return element in self.store[self.storage_index(element)]
 
     def add(self, element) -> None:
         idx = self.storage_index(element)
@@ -23,9 +20,6 @@ class HashSet:
         if self.load_factor >= self.load_factor_threshold:
             self.increase_store_size()
 
-    def __contains__(self, element):
-        return element in self.store[self.storage_index(element)]
-
     def remove(self, element) -> None:
         if element not in self:  # nothing to remove
             return
@@ -35,30 +29,8 @@ class HashSet:
         self.num_elements -= 1
         self.update_load_factor()
 
-    def storage_index(self, element) -> int:
-        # absolute hash value is mapped to range of possible indices in array
-        return abs(hash(element)) % self.max_num_elements
-
-    def update_load_factor(self) -> None:
-        self.load_factor = self.num_elements / self.max_num_elements
-
     def __repr__(self) -> str:
         return f"HashSet: {self.store}, len: {len(self)}, load factor: {self.load_factor}"
-
-    def __len__(self) -> int:
-        return self.num_elements
-
-    def increase_store_size(self):
-        self.max_num_elements *= 2
-        old_store = self.store
-        self.store = [LinkedList() for _ in range(self.max_num_elements)]
-        self.num_elements = 0  # need to set to zero because add method counts added elements
-
-        for linked_list in old_store:
-            for element in linked_list:
-                self.add(element)
-
-        self.update_load_factor()
 
     def intersect(self, other: 'HashSet') -> 'HashSet':
         smaller_set = other if len(other) < len(self) else self
