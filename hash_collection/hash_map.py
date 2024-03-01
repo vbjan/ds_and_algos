@@ -14,7 +14,7 @@ class KeyValuePair:
 
 
 class HashMap(BaseHashCollection):
-    def __setitem__(self, key, value):
+    def __setitem__(self, key, value) -> None:
         local_linked_list = self.store[self.storage_index(key)]
 
         # check if key already in collection -> update value then
