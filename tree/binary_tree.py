@@ -1,4 +1,4 @@
-from tree import NodeTree, ArrayTree
+from tree import NodeTree, ArrayTree, LinkedListTree
 
 
 class BinaryNodeTree(NodeTree):

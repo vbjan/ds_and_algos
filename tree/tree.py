@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from linked_list.linked_list import LinkedList
 
 
 class BaseTree(ABC):
@@ -81,7 +82,48 @@ class ArrayTree(BaseTree):
         self.store[0] = value
 
 
+class LinkedListTree(BaseTree):
+    def __init__(self, value):
+        self.value = value
+        self.children = LinkedList()
+
+    def add_child(self, value) -> None:
+        child = self.create_child(value)
+        self.children.append(child)
+
+    @classmethod
+    def create_child(cls, value) -> 'LinkedListTree':
+        return cls(value)
+
+    def __repr__(self) -> str:
+        return f"LinkedListTree[value={self.value}], children: {self.children}"
+
+    def __getitem__(self, indcs) -> 'LinkedListTree':
+        if isinstance(indcs, int):
+            return self.children[indcs].element
+
+        else:
+            child = None
+            children = self.children
+
+            for i in indcs:
+                child = children[i].element
+                children = child.children
+
+            return child
+
+
 if __name__ == "__main__":
+    # LinkedListTree
+    tree0 = LinkedListTree(0)
+    tree0.add_child(1)
+    tree0.add_child(2)
+    tree0[0].add_child(10)
+    print(tree0)
+    print(tree0[0, 0])
+    print(tree0[1])
+    exit()
+
     # ArrayTree
     tree = ArrayTree(max_children=3, depth=4)
     tree.set_root(0)
