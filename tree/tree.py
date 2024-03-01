@@ -29,6 +29,9 @@ class NodeTree(BaseTree):
     def __getitem__(self, i):
         return self.children[i]
 
+    def is_leaf(self) -> bool:
+        return len(self.children) == 0
+
 
 class ArrayTree(BaseTree):
     def __init__(self, max_children, depth):

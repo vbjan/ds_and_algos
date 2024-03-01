@@ -3,7 +3,7 @@ A tree is a widely used hierarchical data structure that organizes elements in a
 
 ![Treedatastructure](https://github.com/vbjan/ds_and_algos/assets/62449932/fb6ec625-3147-457c-bdf4-2c24f018bbca)
 
-The abstract tree data structure can be implemented on based on an array, a graph or a collection of linked lists. The different implementations can be found in [`tree.py`](./tree.py).
+The abstract tree data structure can be implemented based on an array, a graph or a collection of linked lists. The different implementations can be found in [`tree.py`](./tree.py).
 
 ## Special Versions
 - Binary Tree: Only two children for each node

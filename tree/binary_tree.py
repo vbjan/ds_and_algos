@@ -1,22 +1,45 @@
 from tree import NodeTree, ArrayTree, LinkedListTree
+from typing import Optional
 
 
 class BinaryNodeTree(NodeTree):
-    def __init__(self, value):
+    def __init__(self, value=None):
         super().__init__(value)
-        self.left = None
-        self.right = None
+        self.children = [None] * 2
 
-    def add_child(self, value):
-        if len(self.children) == 2:
-            raise AssertionError("Tried to add child to node with two children!")
-        super().add_child(value)
-        if len(self.children) == 1:
-            self.left = self.children[0]
-        elif len(self.children) == 2:
-            self.right = self.children[1]
+    def is_leaf(self) -> bool:
+        return self.left is None and self.right is None
+
+    @property
+    def left(self) -> Optional['BinaryNodeTree']:
+        return self.children[0]
+
+    @left.setter
+    def left(self, value):
+        if isinstance(value, BinaryNodeTree) or value is None:
+            self.children[0] = value
         else:
-            raise AssertionError
+            self.children[0] = self.create_child(value)
+
+    @property
+    def right(self) -> Optional['BinaryNodeTree']:
+        return self.children[1]
+
+    @right.setter
+    def right(self, value):
+        if isinstance(value, BinaryNodeTree) or value is None:
+            self.children[1] = value
+        else:
+            self.children[1] = self.create_child(value)
+
+    def add_child(self, value) -> 'BinaryNodeTree':
+        if self.left is None:
+            self.left = value
+        elif self.right is None:
+            self.right = value
+        else:
+            raise AssertionError("Tried to add child to parent with two children already!")
+        return self
 
 
 class BinaryArrayTree(ArrayTree):
@@ -26,11 +49,10 @@ class BinaryArrayTree(ArrayTree):
 
 if __name__ == "__main__":
     tree = BinaryNodeTree(1)
-    tree.add_child(2)
-    tree.add_child(3)
-    tree.left.add_child(1)
-    tree.right.add_child(2)
-
+    tree.right = 1
+    tree.left = 2
+    print(tree)
+    tree.left.add_child(2)
     print(tree)
     print(tree.left)
     print(tree.right)
