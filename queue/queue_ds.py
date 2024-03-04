@@ -6,7 +6,7 @@ import warnings
 
 class BaseQueue(ABC):
     @abstractmethod
-    def enqueue(self, element) -> None:
+    def enqueue(self, element, *args, **kwargs) -> None:
         pass
 
     @abstractmethod
