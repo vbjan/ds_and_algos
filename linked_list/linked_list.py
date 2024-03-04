@@ -107,6 +107,17 @@ class LinkedList:
         self.tail.next = None
         return node
 
+    def reverse(self) -> None:
+        prev, current, nextn = None, self.head, self.head.next
+        self.tail = current
+
+        while nextn is not None:
+            current.next = prev
+            prev, current, nextn = current, nextn, nextn.next
+
+        current.next = prev
+        self.head = current
+
     def __iter__(self):
         self.iter_index = 0
         return self
@@ -143,13 +154,12 @@ if __name__ == "__main__":
     l.append(2)
     l.append(3)
     l.append(1)
-    print(l)
-    print(l[1])
-    print(l[2])
     l.insert(10, 3)
-    print(l)
     l.insert(11, 0)
     print(l)
+    l.reverse()
+    print("\n" + str(l))
+    exit()
     print(0 in l)
     # prints out LinkedList[size=5]: HeadNode(11)->Node(2)->Node(3)->Node(10)->TailNode(1)->None
 

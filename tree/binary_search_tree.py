@@ -53,7 +53,7 @@ class BinarySearchTree(BinaryNodeTree):
         is_left_child = True
         while ptr is not None and ptr.value != value:
             parent = ptr
-            if value < ptr.value:
+            if value <= ptr.value:
                 ptr = ptr.left
                 is_left_child = True
             else:
@@ -76,9 +76,8 @@ def main():
     bst.insert(bst2)
 
     print(bst)
-    print(bst.search(10))
-    print(bst.delete(15))
-    print(bst)
+    print(bst.search_with_parent(1))
+    #print(bst.delete(15))
 
 
 if __name__ == "__main__":
