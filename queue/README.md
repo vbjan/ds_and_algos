@@ -16,4 +16,4 @@
 # Priority Queue
 Each element in the queue has a corresponding priority value. The elements are dequeued from the priority queue in order of the priority.
 
-Efficient enqueuing in $O(log n)$ and dequeuing in $O(log n)$ requires to store the elements in order with a heap. Find the implementation in [`priority_queue.py`](./priority_queue.py).
+Efficient enqueuing in $O(log n)$ and dequeuing in $O(log n)$ requires to store the elements in order with a heap. Find the implementation in [`priority_queue.py`](priority_queue.py).
