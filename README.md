@@ -4,7 +4,7 @@ This repo is the product of me revisiting and implementing common data structure
 The figure below shows a dependency graph of the different implementations.
 
 <p align="center">
-    <img src="https://github.com/vbjan/ds_and_algos/assets/62449932/5f31d3f3-a217-48db-9e84-ef638600bdac" alt="Description of Image" width=60%>
+    <img src="https://github.com/vbjan/ds_and_algos/assets/62449932/5f31d3f3-a217-48db-9e84-ef638600bdac" alt="Description of Image" width=65%>
 </p>
 
 ## Find the Following Implementations:
