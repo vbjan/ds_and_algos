@@ -8,23 +8,23 @@ The figure below shows a dependency graph of the different implementations.
 </p>
 
 ## Find the Following Implementations:
-- **Linked list** in [`linked_list/linked_list.py`](linked_list/linked_list.py)
-- **Stack** in [`stack/stack.py`](stack/stack.py) based on 
+- `LinkedList` in [`linked_list/linked_list.py`](linked_list/linked_list.py)
+- `Stack` in [`stack/stack.py`](stack/stack.py) based on 
   - Array
   - Linked list
-- **Queue** in [`queue/queue_ds.py`](queue/queue_ds.py) based on 
+- `Queue` in [`queue/queue_ds.py`](queue/queue_ds.py) based on 
   - Array
   - Linked list
-- **Hash set** in [`hash_collection/hash_set.py`](hash_collection/hash_set.py`) based on
+- `HashSet` in [`hash_collection/hash_set.py`](hash_collection/hash_set.py`) based on
   - Array and chaining using linked lists
-- **Hash map** in [`hash_collection/hash_set.py`](hash_collection/hash_set.py`) based on
+- `HashMap` in [`hash_collection/hash_set.py`](hash_collection/hash_set.py`) based on
   - Array and chaining using linked lists
-- **Tree** in [`tree/tree.py`](tree/tree.py) based on
+- `Tree` in [`tree/tree.py`](tree/tree.py) based on
   - Nodes connected using references
   - Array (e.g. for heap)
   - Collecting children of parent in linked list
-- **Binary Tree** as subclasses of the tree implementations in [`tree/binary_tree.py`](tree/binary_tree.py) 
-- **Binary Search Tree** as subclass of the node based binary tree implementations in [`tree/binary_search_tree.py`](tree/binary_search_tree.py) 
-- **Heap** based on array-based implementation of binary tree in [`heap/heap.py`](heap/heap.py)
+- `BinaryTree` as subclasses of the tree implementations in [`tree/binary_tree.py`](tree/binary_tree.py) 
+- `BinarySearchTree` as subclass of the node based binary tree implementations in [`tree/binary_search_tree.py`](tree/binary_search_tree.py) 
+- `Heap` based on array-based implementation of binary tree in [`heap/heap.py`](heap/heap.py)
 
 
