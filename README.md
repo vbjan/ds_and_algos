@@ -16,6 +16,7 @@ The figure below shows a dependency graph of the different implementations.
 - `Queue` in [`queue/queue_ds.py`](queue/queue_ds.py) based on 
   - Array
   - Linked list
+- `PriorityQueue` in [`queue/priority_queue.py`](queue/priority_queue.py) based on heap
 - `HashSet` in [`hash_collection/hash_set.py`](hash_collection/hash_set.py`) based on
   - Array and chaining using linked lists
 - `HashMap` in [`hash_collection/hash_set.py`](hash_collection/hash_set.py`) based on
