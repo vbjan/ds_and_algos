@@ -1,4 +1,5 @@
 # Implementing Data Structures from Scratch
+*March 5, 2024*
 
 This repo is the product of me revisiting and implementing common data structures.
 The figure below shows a dependency graph of the different implementations.
