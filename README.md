@@ -7,7 +7,7 @@ The figure below shows a dependency graph of the different implementations.
     <img src="https://github.com/vbjan/ds_and_algos/assets/62449932/5f31d3f3-a217-48db-9e84-ef638600bdac" alt="Description of Image" width=60%>
 </p>
 
-Find the following implementations:
+## Find the following implementations:
 - **Linked list** in [`linked_list/linked_list.py`](linked_list/linked_list.py)
 - **Stack** in [`stack/stack.py`](stack/stack.py) based on 
   - Array
